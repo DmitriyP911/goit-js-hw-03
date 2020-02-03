@@ -10,7 +10,7 @@ const user = {
 user.mood = 'happy';
 user.hobby = 'skydiving';
 user.premium = false;
-for( let prop in user ) {
-    console.log( `${prop} : ${user[prop]}` );
+for( let elem of Object.keys( user ) ) {
+    console.log( `${elem} : ${user[elem]}` )
 }
 

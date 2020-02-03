@@ -24,10 +24,11 @@ const account = {
      * Принимает сумму и тип транзакции.
      */
     createTransaction ( amount, type ) {
-        const transaction = {};
-        transaction.id = this.transactions.length + 1;
-        transaction.type = type;
-        transaction.amount = amount;
+        const transaction = {
+            amount,
+            type,
+            id: this.transactions.length + 1,
+        };
         return transaction;
     },
 
@@ -55,11 +56,10 @@ const account = {
     withdraw ( amount ) {
         this.createTransaction();
         if( amount > this.balance ) {
-            return `Снятие такой суммы не возможно, недостаточно средств.`
-        } else {
-            this.balance -= amount;
-            this.transactions.push( this.createTransaction( amount, 'withdraw' ) );
+            console.log( `Снятие такой суммы не возможно, недостаточно средств.` );
         }
+        this.balance -= amount;
+        this.transactions.push( this.createTransaction( amount, 'withdraw' ) );
     },
 
     /*
