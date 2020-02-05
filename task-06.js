@@ -8,15 +8,13 @@ const products = [
 ];
 
 const calculateTotalPrice = function ( allProdcuts, productName ) {
-    let result = 0;
     for( let object of allProdcuts ) {
         for( let key in object ) {
             if( object[key] === productName ) {
-                result = object.price * object.quantity;
+                return object.price * object.quantity;
             }
         }
     }
-    return result;
 };
 
 
